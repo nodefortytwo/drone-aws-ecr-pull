@@ -7,7 +7,7 @@ Pulls image from private ECR
 pipeline:
   pull:
     image: nodefortytwo/drone-aws-ecr-pull
-    iamges:
+    images:
         - 99999.dkr.ecr.us-east-1.amazonaws.com/build_image
     privileged: true
     volumes:
