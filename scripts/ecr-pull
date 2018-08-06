@@ -1,0 +1,17 @@
+#!/bin/sh
+
+set -e
+
+if [ -z $PLUGIN_IMAGES ];
+then
+    echo "Error: provide images to pull"
+    exit 1
+fi
+
+$(aws ecr get-login --no-include-email --region eu-central-1)
+
+for i in $(echo $PLUGIN_IMAGES | sed "s/,/ /g")
+do
+    # call your procedure/other scripts here below
+    docker pull $i
+done
